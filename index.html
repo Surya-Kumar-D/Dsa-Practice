@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- <script type="module" src="/src/main.ts"></script> -->
+    <script>
+      //   let timeout;
+      //   function debounce(e) {
+      //     clearTimeout(timeout);
+      //     timeout = setTimeout(() => console.log(`${this} debounce`), 1000);
+      //   }
+
+      //   document.addEventListener("click", debounce.bind("hello"));
+
+      function debounce(callback, delay) {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            callback(...args);
+          }, delay);
+        };
+      }
+
+      document.addEventListener(
+        "click",
+        debounce(function () {
+          console.log(`${arg}`);
+        }, 1000)
+      );
+    </script>
+  </body>
+</html>
