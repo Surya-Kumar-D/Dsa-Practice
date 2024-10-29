@@ -267,18 +267,39 @@
 
 //find Common Characters
 
-function commonChars(words: string[]): string[] {
-  const charCount = words.reduce((acc, word) => {
-    const currentCount = Array(26).fill(0);
-    for (const char of word) {
-      currentCount[char.charCodeAt(0) - "a".charCodeAt(0)]++;
-    }
-    return acc.map((count, index) => Math.min(count, currentCount[index]));
-  }, Array(26).fill(Infinity));
+// function commonChars(words: string[]): string[] {
+//   const charCount = words.reduce((acc, word) => {
+//     const currentCount = Array(26).fill(0);
+//     for (const char of word) {
+//       currentCount[char.charCodeAt(0) - "a".charCodeAt(0)]++;
+//     }
+//     return acc.map((count, index) => Math.min(count, currentCount[index]));
+//   }, Array(26).fill(Infinity));
 
-  return charCount.flatMap((count, index) =>
-    Array(count).fill(String.fromCharCode(index + "a".charCodeAt(0)))
-  );
+//   return charCount.flatMap((count, index) =>
+//     Array(count).fill(String.fromCharCode(index + "a".charCodeAt(0)))
+//   );
+// }
+
+// console.log(commonChars(["bella", "label", "roller"]));
+
+//leetcode 925 Long Pressed Name
+
+function isLongPressedName(name: string, typed: string): boolean {
+  let i = 0;
+  let j = 0;
+
+  while (j < typed.length) {
+    if (i < name.length && name[i] === typed[j]) {
+      i++;
+      j++;
+    } else if (j > 0 && typed[j] === typed[j - 1]) {
+      j++;
+    } else {
+      return false;
+    }
+  }
+  return i === name.length;
 }
 
-console.log(commonChars(["bella", "label", "roller"]));
+console.log(isLongPressedName("saeed", "ssaaedd"));
