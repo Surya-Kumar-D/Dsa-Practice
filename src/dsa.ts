@@ -285,21 +285,52 @@
 
 //leetcode 925 Long Pressed Name
 
-function isLongPressedName(name: string, typed: string): boolean {
-  let i = 0;
-  let j = 0;
+// function isLongPressedName(name: string, typed: string): boolean {
+//   let i = 0;
+//   let j = 0;
 
-  while (j < typed.length) {
-    if (i < name.length && name[i] === typed[j]) {
-      i++;
-      j++;
-    } else if (j > 0 && typed[j] === typed[j - 1]) {
-      j++;
-    } else {
-      return false;
-    }
-  }
-  return i === name.length;
-}
+//   while (j < typed.length) {
+//     if (i < name.length && name[i] === typed[j]) {
+//       i++;
+//       j++;
+//     } else if (j > 0 && typed[j] === typed[j - 1]) {
+//       j++;
+//     } else {
+//       return false;
+//     }
+//   }
+//   return i === name.length;
+// }
 
-console.log(isLongPressedName("saeed", "ssaaedd"));
+// console.log(isLongPressedName("saeed", "ssaaedd"));
+
+//1768. Merge Strings Alternately
+
+// function mergeAlternately(word1: string, word2: string): string {
+//   let left = 0;
+//   let right = 0;
+//   let newStr: string = "";
+//   while (left < word1.length || right < word2.length) {
+//     if (left < word1.length) {
+//       newStr += word1[left];
+//       left++;
+//     }
+//     if (right < word2.length) {
+//       newStr += word2[right];
+//       right++;
+//     }
+//   }
+//   return newStr;
+// }
+
+// console.log(mergeAlternately("ab", "pqrs"));
+
+// 1431. Kids With the Greatest Number of Candies
+
+// function kidsWithCandies(candies: number[], extraCandies: number): boolean[] {
+//   return candies.map((candy) => {
+//     return candy + extraCandies >= Math.max(...candies);
+//   });
+// }
+
+// console.log(kidsWithCandies([2, 3, 5, 1, 3], 3));
