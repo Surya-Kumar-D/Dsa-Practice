@@ -382,3 +382,21 @@
 
 // console.log(reverseWords("the sky is blue"));
 // console.log(reverseWords("  hello world  "));
+
+//238. Product of Array Except Self
+
+function productExceptSelf(nums: number[]): number[] {
+  let res = [1];
+  for (let i = 1; i < nums.length; i++) {
+    res.push(res[i - 1] * nums[i - 1]);
+  }
+  console.log(res);
+  let suffixProduct = 1;
+  for (let i = nums.length - 2; i >= 0; i--) {
+    suffixProduct *= nums[i + 1];
+    res[i] = res[i] * suffixProduct;
+  }
+  return res;
+}
+
+console.log(productExceptSelf([1, 2, 3, 4]));
