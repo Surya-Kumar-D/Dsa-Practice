@@ -403,25 +403,55 @@
 
 //334. Increasing Triplet Subsequence
 
-function increasingTriplet(nums: number[]): boolean {
-  let first = Infinity;
-  let second = Infinity;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] <= first) {
-      first = nums[i];
-      console.log(nums[i]);
-    } else if (nums[i] <= second) {
-      second = nums[i];
-      console.log(nums[i]);
-    } else {
-      console.log(nums[i]);
-      return true;
+// function increasingTriplet(nums: number[]): boolean {
+//   let first = Infinity;
+//   let second = Infinity;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (nums[i] <= first) {
+//       first = nums[i];
+//       console.log(nums[i]);
+//     } else if (nums[i] <= second) {
+//       second = nums[i];
+//       console.log(nums[i]);
+//     } else {
+//       console.log(nums[i]);
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+
+// console.log(increasingTriplet([5, 4, 3, 2, 1]));
+// console.log(increasingTriplet([1, 2, 3, 4, 5]));
+// console.log(increasingTriplet([2, 1, 5, 0, 4, 6]));
+// console.log(increasingTriplet([20, 100, 10, 12, 5, 13]));
+
+//String Compression
+function compress(chars) {
+  let left = 0;
+  let write = 0;
+
+  while (left < chars.length) {
+    let curChar = chars[left];
+    let count = 0;
+
+    while (left < chars.length && chars[left] === curChar) {
+      count++;
+      left++;
+    }
+
+    chars[write] = curChar;
+    write++;
+
+    if (count > 1) {
+      const countStr = count.toString();
+      for (let digit of countStr) {
+        chars[write] = digit;
+        write++;
+      }
     }
   }
-  return false;
-}
 
-console.log(increasingTriplet([5, 4, 3, 2, 1]));
-console.log(increasingTriplet([1, 2, 3, 4, 5]));
-console.log(increasingTriplet([2, 1, 5, 0, 4, 6]));
-console.log(increasingTriplet([20, 100, 10, 12, 5, 13]));
+  return write;
+}
+console.log(compress(["a", "a", "b", "b", "c", "c", "c"]));
