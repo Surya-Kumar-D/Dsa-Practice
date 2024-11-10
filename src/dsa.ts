@@ -427,31 +427,49 @@
 // console.log(increasingTriplet([20, 100, 10, 12, 5, 13]));
 
 //String Compression
-function compress(chars) {
-  let left = 0;
-  let write = 0;
+// function compress(chars) {
+//   let left = 0;
+//   let write = 0;
 
-  while (left < chars.length) {
-    let curChar = chars[left];
-    let count = 0;
+//   while (left < chars.length) {
+//     let curChar = chars[left];
+//     let count = 0;
 
-    while (left < chars.length && chars[left] === curChar) {
-      count++;
-      left++;
-    }
+//     while (left < chars.length && chars[left] === curChar) {
+//       count++;
+//       left++;
+//     }
 
-    chars[write] = curChar;
-    write++;
+//     chars[write] = curChar;
+//     write++;
 
-    if (count > 1) {
-      const countStr = count.toString();
-      for (let digit of countStr) {
-        chars[write] = digit;
-        write++;
-      }
-    }
-  }
+//     if (count > 1) {
+//       const countStr = count.toString();
+//       for (let digit of countStr) {
+//         chars[write] = digit;
+//         write++;
+//       }
+//     }
+//   }
 
-  return write;
-}
-console.log(compress(["a", "a", "b", "b", "c", "c", "c"]));
+//   return write;
+// }
+// console.log(compress(["a", "a", "b", "b", "c", "c", "c"]));
+
+//392. Is Subsequence
+
+// function isSubsequence(s: string, t: string): boolean {
+//   let left = 0;
+//   let right = 0;
+//   while (left <= s.length && right < t.length) {
+//     if (s[left] === t[right]) {
+//       left++;
+//       right++;
+//     } else {
+//       right++;
+//     }
+//   }
+//   return left === s.length;
+// }
+
+// console.log(isSubsequence("abc", "ahbgdc"));
